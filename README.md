@@ -1,10 +1,13 @@
 #First time I use webpack
-    想总结一下:
+
+想总结一下:
+
 1.代码分割
 2.Loaders:style-loader,css-loader,file-loader,url-loader,csv-loader,xml-loader
 3.插件机制
 
 ##常犯错误
+
 1.webpack.config.js中添加新的module或者plugins,老是会忽略再上一个尖括号(the right braces)后面加上一个逗号
 2.json文件与config文件的不同.json文件是如果在script阐述或者devDependecies阐述最后的多加了一个comma逗号的话,是会出现编译错误的.(不过这总是会被提醒的,注意不要出现类似的错误即可)
 
@@ -19,17 +22,19 @@ npm ERR! Failed to parse package.json data.
 npm ERR! package.json must be actual JSON, not just JavaScript.
 ```
 
-
 ##安装
+
     全局安装:可使webpack在全局环境使用:$npm install --global webpack(不推荐全局安装 webpack。这会将您项目中的 webpack 锁定到指定版本，并且在使用不同的 webpack 版本的项目中，可能会导致构建失败)
     本地安装:npm install --save-dev webpack
     npm install --save-dev webpack@<version>
     (对于大多数项目,建议本地安装,在引入破坏式变更的依赖时,更容易升级项目.)
+
 ##基本的使用
+
 1.初始化npm项目 $npm init -y
 2.项目中安装webpack $npm install webpack -save-dev
 3.执行打包命令 $ webpack 入口文件 出口文件 
-    Eg:$./node_modules/.bin/webpack src/index.js dist/bundle.js
+Eg:$./node_modules/.bin/webpack src/index.js dist/bundle.js
 
 ##webpack命令行
 
@@ -60,6 +65,7 @@ npm ERR! package.json must be actual JSON, not just JavaScript.
 
     webpack-dev-server 是一个基于 Express 的 Node.js 服务器
     webpack-dev-server 为你提供了一个简单的 web 服务器，并且能够实时重新加载(live reloading)。
+    它使用webpack-dev-middleware来服务于webpack的包,除此自外，它还有一个通过Sock.js来连接到服务器的微型运行时.
 ```
 +   devServer: {
 +     contentBase: './dist'
